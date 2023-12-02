@@ -1,11 +1,26 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import { ChangeEvent, useState } from 'react'
+
 import { Inter } from 'next/font/google'
+import Head from 'next/head'
+
 import styles from '~/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+type TodoProps = {
+  id: string
+  title: string
+  description: string
+}
+
+const Home = () => {
+  const [text, setText] = useState('')
+  const [todos, setTodos] = useState<TodoProps[]>([])
+
+  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    setText(e.target.value)
+  }
+
   return (
     <>
       <Head>
@@ -14,8 +29,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
+        <div className={styles.title}>Todo List</div>
+
+        <div className={styles.todoList}>
+          <div className={styles.createCard}>Create Todo</div>
+          {todos.map((item: TodoProps) => (
+            <div className={styles.todoCard} key={item.id}>
+              <h2>{item.title}</h2>
+              <p>{item.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>src/pages/index.tsx</code>
@@ -107,8 +135,10 @@ export default function Home() {
               with&nbsp;Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
     </>
   )
 }
+
+export default Home

@@ -1,12 +1,40 @@
 .main {
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
+  margin: 0 auto;
+  max-width: 95%;
   min-height: 100vh;
 }
 
+.title {
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 3rem;
+  text-align: center;
+}
+
+.todoList {
+  margin: 1rem 0;
+}
+.todoCard {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 2px solid rgba(3, 3, 3, 0.1);
+  box-shadow: 5px 10px 10px 0 rgb(0 0 0 / 0.2);
+}
+.createCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 2px solid rgba(3, 3, 3, 0.1);
+  box-shadow: 5px 10px 10px 0 rgb(0 0 0 / 0.2);
+}
+
+/*
 .description {
   display: inherit;
   justify-content: inherit;
@@ -107,7 +135,7 @@
 .logo {
   position: relative;
 }
-/* Enable hover only on non-touch devices */
+ Enable hover only on non-touch devices
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
@@ -125,7 +153,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 700px) {
   .content {
     padding: 4rem;
@@ -202,7 +230,7 @@
   }
 }
 
-/* Tablet and Smaller Desktop */
+
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
@@ -226,4 +254,4 @@
   to {
     transform: rotate(0deg);
   }
-}
+} */
