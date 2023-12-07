@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
+import { Layout } from '~/components/Layout'
 import { Todolist } from '~/components/mol/List/todoList'
 import styles from '~/styles/Home.module.css'
 
@@ -14,8 +15,8 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <div className={styles.title}>Todo List</div>
+      <Layout>
+        <h1>Todo List</h1>
 
         <div className={styles.todoList}>
           <Link href="/create" passHref legacyBehavior>
@@ -23,7 +24,7 @@ const Home = () => {
           </Link>
           <Todolist />
         </div>
-      </main>
+      </Layout>
     </>
   )
 }
